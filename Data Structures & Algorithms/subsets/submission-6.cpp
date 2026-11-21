@@ -1,0 +1,27 @@
+class Solution {
+    vector<vector<int>> res;
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<int> cur;
+        dfs(nums, 0, cur);
+        return res;
+    }
+
+
+    void dfs(vector<int>& nums, int i, vector<int>& cur)
+    {
+        if(i == nums.size())
+        {
+            res.push_back(cur);
+            return;
+        }
+
+        cur.push_back(nums[i]);
+        dfs(nums, i + 1, cur);
+        cur.pop_back();
+        dfs(nums, i + 1, cur);
+    }
+};
+
+
+
